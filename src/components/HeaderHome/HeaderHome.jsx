@@ -6,7 +6,7 @@ export default function HeaderHome() {
     <div>
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
         <div className="container">
-          <NavLink className="navbar-brand" to="#">
+          <NavLink className="navbar-brand" to="/">
             REACT HOOK
           </NavLink>
           <button
@@ -44,6 +44,9 @@ export default function HeaderHome() {
                 <div className="dropdown-menu" aria-labelledby="dropdownId">
                   <NavLink className="dropdown-item" to="usestate">
                     UseState
+                  </NavLink>
+                  <NavLink className="dropdown-item" to="useeffect">
+                    UseEffect
                   </NavLink>
 
                 </div>
