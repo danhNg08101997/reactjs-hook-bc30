@@ -3,7 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
 import UseStateDemo from "./pages/HookDemo/UseStateDemo/UseStateDemo";
 import UseEffectDemo from "./pages/HookDemo/UseEffectDemo/UseEffectDemo";
 import UseCallBackDemo from "./pages/HookDemo/UseCallBackDemo/UseCallBackDemo";
@@ -16,6 +21,7 @@ import Home from "./pages/HookDemo/UseHookRouter/UseParamsDemo/Home";
 import Detail from "./pages/HookDemo/UseHookRouter/UseParamsDemo/Detail";
 import UseSearchParams from "./pages/HookDemo/UseHookRouter/UseSearchParams/UseSearchParams";
 import DemoUseRoute from "./pages/HookDemo/CustomHooks/DemoUseRoute";
+import Login from "./pages/Login/Login";
 
 //setup redux
 import { Provider } from "react-redux";
@@ -25,13 +31,19 @@ import { store } from "./redux/configStore";
 import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 import AntdDemo from "./pages/AntdDemo/AntdDemo";
 
+import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
+import { createBrowserHistory } from "history";
+
 import "./assets/scss/style.scss";
-import Login from "./pages/Login/Login";
+import Profile from "./pages/Profile/Profile";
+
+//cấu hình history (chuyển hướng không cần hook navigate)
+export const history = createBrowserHistory({ window });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <HistoryRouter history={history}>
       <Routes>
         <Route path="" element={<App />}>
           <Route index element={<Home />}></Route>
@@ -50,9 +62,10 @@ root.render(
           <Route path="demouseroutes" element={<DemoUseRoute />}></Route>
           <Route path="antd" element={<AntdDemo />}></Route>
           <Route path="login" element={<Login />}></Route>
+          <Route path="profile" element={<Profile />}></Route>
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HistoryRouter>
   </Provider>
 );
 
