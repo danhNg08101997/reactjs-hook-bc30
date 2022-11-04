@@ -26,6 +26,7 @@ import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 import AntdDemo from "./pages/AntdDemo/AntdDemo";
 
 import "./assets/scss/style.scss";
+import Login from "./pages/Login/Login";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -48,6 +49,7 @@ root.render(
           <Route path="logindemo" element={<LoginDemo />}></Route>
           <Route path="demouseroutes" element={<DemoUseRoute />}></Route>
           <Route path="antd" element={<AntdDemo />}></Route>
+          <Route path="login" element={<Login />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
