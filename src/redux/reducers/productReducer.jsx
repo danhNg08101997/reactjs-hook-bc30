@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { http } from "../../util/tools";
 
 const initialState = {
   arrProduct: [],
@@ -24,7 +25,8 @@ const productReducer = createSlice({
   },
 });
 /*------------------action: {type,payload}-------------------------- */
-export const { getProductAction, getProductDetailAction } = productReducer.actions;
+export const { getProductAction, getProductDetailAction } =
+  productReducer.actions;
 
 export default productReducer.reducer;
 
@@ -32,10 +34,7 @@ export default productReducer.reducer;
 export const getProductApi = () => {
   return async (dispatch) => {
     try {
-      const result = await axios({
-        url: "https://shop.cyberlearn.vn/api/Product",
-        method: "GET",
-      });
+      const result = await http.get("/product");
       //sau khi lấy dữ liệu từ api => setState cho arrProduct
       // setArrProduct(result.data.content);
 

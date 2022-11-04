@@ -45,7 +45,7 @@ action = (dispatch2) => {
   const renderProduct = () => {
     return arrProduct.map((item, index) => {
       return (
-        <div className="col-4 my-2" key={index}>
+        <div className="col-3 my-2" key={index}>
           <div className="card">
             <img src={item.image} alt={item.name} />
             <div className="card-body bg-dark text-white">
